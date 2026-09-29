@@ -31,7 +31,7 @@ jobs:
 
           local-dir: ./
 
-          server-dir: domains/alzahraa-construction.com/imperisyachts.com/
+          server-dir: ./
 
           dangerous-clean-slate: false
           security: loose
