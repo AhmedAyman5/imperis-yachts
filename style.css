@@ -38,7 +38,7 @@
   --shadow-card: 0 8px 24px rgba(36, 58, 94, 0.1);
   --shadow-card-hover: 0 14px 34px rgba(36, 58, 94, 0.18);
   --section-space: 5rem;
-  --navbar-height: 86px;
+  --navbar-height: 120px;
 }
 
 /* -------------------------------------------------------------------------
@@ -51,28 +51,34 @@
   margin: 0;
   padding: 0;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 img,
 video {
   max-width: 100%;
   display: block;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 ul,
 ol {
   list-style: none;
 }
+
 button {
   font: inherit;
   border: none;
   background: none;
   cursor: pointer;
 }
+
 body {
   color: var(--color-text);
   background: #fff;
@@ -85,6 +91,7 @@ body {
 html[lang="en"] body {
   font-family: var(--font-body-en);
 }
+
 html[lang="en"] h1,
 html[lang="en"] h2,
 html[lang="en"] h3,
@@ -95,6 +102,7 @@ html[lang="en"] h4 {
 html[lang="ar"] body {
   font-family: var(--font-body-ar);
 }
+
 html[lang="ar"] h1,
 html[lang="ar"] h2,
 html[lang="ar"] h3,
@@ -107,15 +115,18 @@ h1 {
   line-height: 1.15;
   font-weight: 700;
 }
+
 h2 {
   font-size: clamp(1.7rem, 3.5vw, 2.5rem);
   line-height: 1.2;
   font-weight: 600;
 }
+
 h3 {
   font-size: clamp(1.25rem, 2vw, 1.6rem);
   font-weight: 600;
 }
+
 p {
   font-size: 1.02rem;
 }
@@ -137,9 +148,11 @@ html[lang="ar"] p {
 .section {
   padding-block: var(--section-space);
 }
+
 .section--surface {
   background: var(--color-surface);
 }
+
 .section--surface-alt {
   background: var(--color-surface-alt);
 }
@@ -151,6 +164,7 @@ html[lang="ar"] p {
   margin-bottom: 3rem;
   text-align: center;
 }
+
 .section-head .eyebrow {
   display: inline-block;
   font-family: var(--font-body-en);
@@ -161,10 +175,12 @@ html[lang="ar"] p {
   color: var(--color-secondary);
   margin-bottom: 0.75rem;
 }
+
 html[lang="ar"] .section-head .eyebrow {
   font-family: var(--font-body-ar);
   letter-spacing: normal;
 }
+
 .section-head p {
   margin-top: 1rem;
   color: var(--color-secondary);
@@ -178,10 +194,12 @@ html[lang="ar"] .section-head .eyebrow {
   padding: 2rem;
   transition: all 0.25s ease;
 }
+
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-card-hover);
 }
+
 .card .card-icon {
   display: inline-flex;
   align-items: center;
@@ -193,13 +211,16 @@ html[lang="ar"] .section-head .eyebrow {
   color: var(--color-primary);
   margin-bottom: 1.25rem;
 }
+
 .card .card-icon svg {
   width: 26px;
   height: 26px;
 }
+
 .card h3 {
   margin-bottom: 0.6rem;
 }
+
 .card p {
   color: var(--color-secondary);
   font-size: 0.98rem;
@@ -210,14 +231,17 @@ html[lang="ar"] .section-head .eyebrow {
   display: grid;
   gap: 1.75rem;
 }
+
 @media (min-width: 768px) {
   .grid-2 {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .grid-3 {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 @media (min-width: 1024px) {
   .grid-4 {
     grid-template-columns: repeat(4, 1fr);
@@ -240,6 +264,7 @@ html[lang="ar"] .section-head .eyebrow {
   overflow: hidden;
   background: linear-gradient(135deg, #1b2c47 0%, var(--midnight-blue) 45%, var(--dusty-denim) 100%);
 }
+
 .hero .hero-media {
   position: absolute;
   inset: 0;
@@ -248,16 +273,19 @@ html[lang="ar"] .section-head .eyebrow {
   object-fit: cover;
   z-index: 0;
 }
+
 .hero .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(27, 44, 71, 0.35), rgba(27, 44, 71, 0.7));
   z-index: 1;
 }
+
 .hero .container {
   position: relative;
   z-index: 2;
 }
+
 .hero .eyebrow {
   display: inline-block;
   letter-spacing: 0.22em;
@@ -268,19 +296,23 @@ html[lang="ar"] .section-head .eyebrow {
   color: var(--color-surface-alt);
   margin-bottom: 1rem;
 }
+
 html[lang="ar"] .hero .eyebrow {
   font-family: var(--font-body-ar);
   letter-spacing: normal;
 }
+
 .hero h1 {
   max-width: 900px;
   margin-inline: auto;
 }
+
 .hero p {
   max-width: 640px;
   margin: 1.25rem auto 2rem;
   color: rgba(255, 255, 255, 0.9);
 }
+
 .hero .hero-actions {
   display: flex;
   gap: 1rem;
@@ -298,35 +330,43 @@ html[lang="ar"] .hero .eyebrow {
   font-weight: 500;
   transition: all 0.25s ease;
 }
+
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-text-invert);
 }
+
 .btn-primary:hover {
   background: var(--color-secondary);
   transform: translateY(-2px);
 }
+
 .btn-outline {
   border: 1.5px solid var(--color-primary);
   color: var(--color-primary);
 }
+
 .btn-outline:hover {
   background: var(--color-primary);
   color: var(--color-text-invert);
 }
+
 /* Light variants for use over dark hero backgrounds */
 .btn-light {
   background: #fff;
   color: var(--color-primary);
 }
+
 .btn-light:hover {
   background: var(--color-surface-alt);
   transform: translateY(-2px);
 }
+
 .btn-outline-light {
   border: 1.5px solid rgba(255, 255, 255, 0.8);
   color: #fff;
 }
+
 .btn-outline-light:hover {
   background: #fff;
   color: var(--color-primary);
@@ -344,6 +384,7 @@ html[lang="ar"] .hero .eyebrow {
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(36, 58, 94, 0.08);
 }
+
 .site-nav .nav-inner {
   max-width: 1280px;
   margin-inline: auto;
@@ -354,6 +395,7 @@ html[lang="ar"] .hero .eyebrow {
   justify-content: space-between;
   gap: 1.5rem;
 }
+
 .nav-logo {
   display: flex;
   align-items: center;
@@ -365,6 +407,7 @@ html[lang="ar"] .hero .eyebrow {
   color: var(--color-primary);
   white-space: nowrap;
 }
+
 .nav-logo img {
   height: 38px;
   width: auto;
@@ -373,75 +416,80 @@ html[lang="ar"] .hero .eyebrow {
 /* Brand logo mark (navbar + footer).
    /images/YA5T1-04.png is white artwork on transparent, so it is used as a MASK
    rather than an <img>: the element's background-color becomes the logo colour,
-   which lets one file render navy on the white navbar and white on the navy
+   which lets the one file render navy on the white navbar and white on the navy
    footer.
 
-   All crop values below are measured from the file's alpha channel. The artwork
-   is a VERTICAL lockup made of three bands (as a share of the square canvas):
-     bow mark  14.5% - 58.5%
-     IMPERIS   61.2% - 69.8%
-     YACHTS    74.2% - 77.8%
-   Because the bow mark takes ~2/3 of the height, showing the whole lockup in a
-   horizontal navbar leaves the wordmark too small to read. So the navbar masks
-   the WORDMARK BAND only (aspect 4.54, a wide horizontal lockup that suits the
-   bar and gives the letterforms the full height), while the footer — which has
-   vertical room — shows the FULL lockup (aspect 1.206).
-   Re-measure these six values if the artwork file is ever re-exported. */
+   Both the navbar and the footer show the FULL lockup (bow mark + IMPERIS +
+   YACHTS). The source file is a square canvas with a wide transparent margin;
+   measured from its alpha channel the artwork sits at 12%-88% horizontally and
+   15%-78% vertically, i.e. 76% x 63% of the canvas (aspect 1.206). Scaling the
+   mask to 131.6% of the box width and offsetting it 50% / 40.5% trims that
+   margin exactly, so the box is all artwork and no padding.
+   Re-measure these three values if the artwork file is ever re-exported. */
 :root {
   --logo-mask: url("/images/YA5T1-04.png");
+  --logo-size: 131.6% auto;
+  --logo-pos: 50% 40.5%;
+  --logo-aspect: 1.206;
 
-  /* Full lockup: bow mark + wordmark. Used in the footer. */
-  --logo-full-size: 131.6% auto;
-  --logo-full-pos: 50% 40.5%;
-  --logo-full-aspect: 1.206;
+  /* Rendered widths — the only two numbers to touch when resizing. Height is
+     derived from --logo-aspect so the artwork never stretches.
 
-  /* Wordmark only: IMPERIS + YACHTS. Used in the navbar. */
-  --logo-word-size: 132.2% auto;
-  --logo-word-pos: 50% 73.4%;
-  --logo-word-aspect: 4.54;
-
-  /* Rendered heights — the only two numbers to touch when resizing. */
-  --logo-nav-height: 46px;
-  --logo-footer-height: 132px;
+     IMPORTANT: this logo is a near-square VERTICAL lockup (bow mark stacked
+     over the wordmark), aspect 1.206, so its height grows with its width:
+         logo height  = logo width / 1.206
+         bar height   = logo height + ~16px breathing room
+     That ties the two together — pick a nav width and set --navbar-height to
+     match, or the logo will crowd or overflow the bar:
+         --logo-nav-width   nav logo height   --navbar-height
+              104px              86px              102px
+              125px             104px              120px   <- current
+              150px             124px              140px
+              200px             166px              182px
+     The footer has no such constraint, so it carries the logo at full size. */
+  --logo-nav-width: 125px;
+  --logo-footer-width: 200px;
 }
+
 .nav-logo-mark,
 .footer-logo-mark {
   display: block;
   -webkit-mask-image: var(--logo-mask);
   mask-image: var(--logo-mask);
+  -webkit-mask-size: var(--logo-size);
+  mask-size: var(--logo-size);
+  -webkit-mask-position: var(--logo-pos);
+  mask-position: var(--logo-pos);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
+
 .nav-logo-mark {
-  height: var(--logo-nav-height);
-  width: calc(var(--logo-nav-height) * var(--logo-word-aspect));
-  -webkit-mask-size: var(--logo-word-size);
-  mask-size: var(--logo-word-size);
-  -webkit-mask-position: var(--logo-word-pos);
-  mask-position: var(--logo-word-pos);
+  width: var(--logo-nav-width);
+  height: calc(var(--logo-nav-width) / var(--logo-aspect));
   background-color: var(--color-primary);
   transition: all 0.25s ease;
 }
+
 .nav-logo:hover .nav-logo-mark {
   background-color: var(--color-secondary);
 }
+
 .footer-logo-mark {
-  height: var(--logo-footer-height);
-  width: calc(var(--logo-footer-height) * var(--logo-full-aspect));
-  -webkit-mask-size: var(--logo-full-size);
-  mask-size: var(--logo-full-size);
-  -webkit-mask-position: var(--logo-full-pos);
-  mask-position: var(--logo-full-pos);
+  width: var(--logo-footer-width);
+  height: calc(var(--logo-footer-width) / var(--logo-aspect));
   background-color: #fff;
 }
-/* The navbar logo is a wide wordmark, so the bar needs less height than a
-   vertical lockup would. Everything that offsets against the navbar is
-   calc()'d from --navbar-height, so it all follows automatically. */
+
+/* Phones get a shorter bar and a smaller logo, keeping the same
+   height = width / 1.206 + breathing room relationship as above. Every sticky
+   offset and scroll-margin on the site is calc()'d from --navbar-height, so
+   they all follow automatically. */
 @media (max-width: 767px) {
   :root {
-    --navbar-height: 72px;
-    --logo-nav-height: 34px;
-    --logo-footer-height: 104px;
+    --navbar-height: 100px;
+    --logo-nav-width: 102px;
+    --logo-footer-width: 150px;
   }
 }
 
@@ -451,9 +499,11 @@ html[lang="ar"] .hero .eyebrow {
   align-items: center;
   gap: 0.35rem;
 }
+
 .nav-item {
   position: relative;
 }
+
 .nav-link {
   display: inline-flex;
   align-items: center;
@@ -466,16 +516,19 @@ html[lang="ar"] .hero .eyebrow {
   transition: all 0.25s ease;
   white-space: nowrap;
 }
+
 .nav-link:hover {
   color: var(--color-secondary);
   background: var(--color-surface);
 }
+
 .nav-link .chev {
   width: 16px;
   height: 16px;
   transition: transform 0.25s ease;
 }
-.nav-item.open > .nav-link .chev {
+
+.nav-item.open>.nav-link .chev {
   transform: rotate(180deg);
 }
 
@@ -495,12 +548,14 @@ html[lang="ar"] .hero .eyebrow {
   transform: translateY(8px);
   transition: all 0.2s ease;
 }
-.nav-item.open > .nav-dropdown,
-.nav-item:hover > .nav-dropdown {
+
+.nav-item.open>.nav-dropdown,
+.nav-item:hover>.nav-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
+
 .nav-dropdown a {
   display: block;
   padding: 0.65rem 0.85rem;
@@ -509,6 +564,7 @@ html[lang="ar"] .hero .eyebrow {
   color: var(--color-text);
   transition: all 0.2s ease;
 }
+
 .nav-dropdown a:hover {
   background: var(--color-surface);
   color: var(--color-secondary);
@@ -520,6 +576,7 @@ html[lang="ar"] .hero .eyebrow {
   align-items: center;
   gap: 0.75rem;
 }
+
 .nav-lang {
   display: inline-flex;
   align-items: center;
@@ -532,10 +589,12 @@ html[lang="ar"] .hero .eyebrow {
   border: 1px solid rgba(36, 58, 94, 0.15);
   transition: all 0.25s ease;
 }
+
 .nav-lang:hover {
   background: var(--color-surface);
   color: var(--color-primary);
 }
+
 .nav-lang svg {
   width: 16px;
   height: 16px;
@@ -548,6 +607,7 @@ html[lang="ar"] .hero .eyebrow {
   justify-content: center;
   color: var(--color-primary);
 }
+
 .nav-toggle svg {
   width: 28px;
   height: 28px;
@@ -562,10 +622,12 @@ html[lang="ar"] .hero .eyebrow {
   max-height: calc(100vh - var(--navbar-height));
   overflow-y: auto;
 }
+
 .nav-mobile.open {
   display: block;
 }
-.nav-mobile .m-group > button {
+
+.nav-mobile .m-group>button {
   width: 100%;
   display: flex;
   align-items: center;
@@ -576,32 +638,39 @@ html[lang="ar"] .hero .eyebrow {
   color: var(--color-primary);
   border-bottom: 1px solid rgba(36, 58, 94, 0.08);
 }
-.nav-mobile .m-group > button svg {
+
+.nav-mobile .m-group>button svg {
   width: 18px;
   height: 18px;
   transition: transform 0.25s ease;
 }
-.nav-mobile .m-group.open > button svg {
+
+.nav-mobile .m-group.open>button svg {
   transform: rotate(180deg);
 }
+
 .nav-mobile .m-sub {
   display: none;
   padding: 0.25rem 0 0.75rem 1rem;
 }
+
 .nav-mobile .m-group.open .m-sub {
   display: block;
 }
+
 .nav-mobile .m-sub a,
-.nav-mobile > a.m-link {
+.nav-mobile>a.m-link {
   display: block;
   padding: 0.65rem 0.25rem;
   color: var(--color-text);
   font-size: 0.98rem;
 }
-.nav-mobile > a.m-link {
+
+.nav-mobile>a.m-link {
   font-weight: 600;
   border-bottom: 1px solid rgba(36, 58, 94, 0.08);
 }
+
 .nav-mobile .m-footer {
   margin-top: 1.5rem;
   display: flex;
@@ -610,13 +679,16 @@ html[lang="ar"] .hero .eyebrow {
 }
 
 @media (min-width: 1024px) {
+
   .nav-menu,
   .nav-actions {
     display: flex;
   }
+
   .nav-toggle {
     display: none;
   }
+
   .nav-mobile {
     display: none !important;
   }
@@ -630,29 +702,35 @@ html[lang="ar"] .hero .eyebrow {
   color: rgba(255, 255, 255, 0.82);
   padding-top: 4rem;
 }
+
 .site-footer a {
   color: rgba(255, 255, 255, 0.82);
   transition: color 0.25s ease;
 }
+
 .site-footer a:hover {
   color: #fff;
 }
+
 .footer-grid {
   display: grid;
   gap: 2.5rem;
   grid-template-columns: 1fr;
   padding-bottom: 3rem;
 }
+
 @media (min-width: 640px) {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media (min-width: 1024px) {
   .footer-grid {
     grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
   }
 }
+
 .footer-brand .footer-logo {
   display: flex;
   align-items: center;
@@ -664,40 +742,48 @@ html[lang="ar"] .hero .eyebrow {
   color: #fff;
   margin-bottom: 1rem;
 }
+
 .footer-brand .footer-logo img {
   height: 40px;
 }
+
 .footer-brand p {
   font-size: 0.95rem;
   max-width: 34ch;
 }
+
 .footer-col h4 {
   color: #fff;
   font-size: 1.05rem;
   margin-bottom: 1.1rem;
 }
+
 .footer-col ul {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
   font-size: 0.94rem;
 }
+
 .footer-contact .f-block {
   margin-bottom: 1.25rem;
   font-size: 0.94rem;
   font-style: normal;
 }
+
 .footer-contact .f-block strong {
   display: block;
   color: #fff;
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
+
 .footer-social {
   display: flex;
   gap: 0.75rem;
   margin-top: 1.25rem;
 }
+
 .footer-social a {
   display: inline-flex;
   align-items: center;
@@ -708,14 +794,17 @@ html[lang="ar"] .hero .eyebrow {
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition: all 0.25s ease;
 }
+
 .footer-social a:hover {
   background: rgba(255, 255, 255, 0.12);
   transform: translateY(-2px);
 }
+
 .footer-social svg {
   width: 18px;
   height: 18px;
 }
+
 .footer-bar {
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   padding: 1.5rem 0;
@@ -734,6 +823,7 @@ html[lang="ar"] .hero .eyebrow {
   text-align: center;
   color: var(--color-secondary);
 }
+
 .page-stub-note .card-icon {
   margin-inline: auto;
 }
