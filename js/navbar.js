@@ -5,23 +5,19 @@
    Two full template strings (EN + AR) are chosen by <html lang>.  (§10)
    ========================================================================= */
 
-/* Logo mark — inline SVG so it never renders as a broken image and inherits
-   currentColor. Swap for /images/logo.svg once the real brand logo is added. */
-const NAV_LOGO_SVG = `
-  <svg viewBox="0 0 32 32" width="34" height="34" fill="none" aria-hidden="true">
-    <path d="M16 2 3 9v8c0 7.3 5.4 12 13 13 7.6-1 13-5.7 13-13V9L16 2Z"
-          fill="none" stroke="currentColor" stroke-width="1.6"/>
-    <path d="M16 8v14M10 13l6-5 6 5M11 22h10" stroke="currentColor"
-          stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>`;
+/* Brand logo — /images/YA5T1-04.png. The artwork is WHITE on transparent, so on
+   the white navbar it is drawn as a CSS mask filled with --color-primary (see
+   .nav-logo-mark in style.css); the footer uses the same file filled white.
+   The PNG already contains the "IMPERIS YACHTS" wordmark, so no text sits
+   beside it — the accessible name comes from the link's aria-label. */
+const NAV_LOGO = `<span class="nav-logo-mark" aria-hidden="true"></span>`;
 
 /* ------------------------------------------------------------------ ENGLISH */
 const NAVBAR_HTML_EN = `
 <nav class="site-nav" aria-label="Primary">
   <div class="nav-inner">
     <a class="nav-logo" href="/" aria-label="IMPERIS YACHTS home">
-      ${NAV_LOGO_SVG}
-      <span>IMPERIS<span style="font-weight:400"> YACHTS</span></span>
+      ${NAV_LOGO}
     </a>
 
     <ul class="nav-menu">
@@ -114,8 +110,7 @@ const NAVBAR_HTML_AR = `
 <nav class="site-nav" aria-label="التنقل الرئيسي">
   <div class="nav-inner">
     <a class="nav-logo" href="/ar/index.html" aria-label="الصفحة الرئيسية لإيمبيريس يخوت">
-      ${NAV_LOGO_SVG}
-      <span>IMPERIS<span style="font-weight:400"> YACHTS</span></span>
+      ${NAV_LOGO}
     </a>
 
     <ul class="nav-menu">

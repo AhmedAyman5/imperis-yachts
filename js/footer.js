@@ -13,13 +13,11 @@ const MAPS_HQ =
 const MAPS_SHIPYARD =
   "https://www.google.com/maps/search/?api=1&query=Third+Free+Zone%2C+Ataka+District%2C+Suez+Governorate%2C+Egypt+43713";
 
-const FOOTER_LOGO_SVG = `
-  <svg viewBox="0 0 32 32" width="36" height="36" fill="none" aria-hidden="true">
-    <path d="M16 2 3 9v8c0 7.3 5.4 12 13 13 7.6-1 13-5.7 13-13V9L16 2Z"
-          fill="none" stroke="currentColor" stroke-width="1.6"/>
-    <path d="M16 8v14M10 13l6-5 6 5M11 22h10" stroke="currentColor"
-          stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>`;
+/* Brand logo — /images/YA5T1-04.png, the same file the navbar uses. Drawn as a
+   CSS mask (see .footer-logo-mark in style.css) filled white, which sits on the
+   midnight-blue footer. The PNG already contains the "IMPERIS YACHTS" wordmark,
+   so no text sits beside it. */
+const FOOTER_LOGO = `<span class="footer-logo-mark" role="img" aria-label="IMPERIS YACHTS"></span>`;
 
 /* Social brand glyphs as inline SVG.
    NOTE: Lucide removed its brand/logo icons (facebook, instagram, linkedin,
@@ -42,7 +40,7 @@ const FOOTER_HTML_EN = `
     <div class="footer-grid">
 
       <div class="footer-brand">
-        <div class="footer-logo">${FOOTER_LOGO_SVG}<span>IMPERIS YACHTS</span></div>
+        <div class="footer-logo">${FOOTER_LOGO}</div>
         <p>Egyptian yacht and shipbuilders since 2000 — designing, engineering and
            crafting yachts and marine vessels, with full refit, maintenance and
            after-sales support, and technical training through IMPERIS Academy.</p>
@@ -112,7 +110,7 @@ const FOOTER_HTML_AR = `
     <div class="footer-grid">
 
       <div class="footer-brand">
-        <div class="footer-logo">${FOOTER_LOGO_SVG}<span>IMPERIS YACHTS</span></div>
+        <div class="footer-logo">${FOOTER_LOGO}</div>
         <p>شركة مصرية لبناء اليخوت والسفن منذ عام 2000 — نصمّم ونهندس ونصنع اليخوت
            والوحدات البحرية، مع خدمات متكاملة للتجديد والصيانة وما بعد البيع، وتدريب
            تقني متخصص من خلال أكاديمية IMPERIS.</p>

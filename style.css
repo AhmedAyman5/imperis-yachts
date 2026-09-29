@@ -38,7 +38,7 @@
   --shadow-card: 0 8px 24px rgba(36, 58, 94, 0.1);
   --shadow-card-hover: 0 14px 34px rgba(36, 58, 94, 0.18);
   --section-space: 5rem;
-  --navbar-height: 76px;
+  --navbar-height: 86px;
 }
 
 /* -------------------------------------------------------------------------
@@ -368,6 +368,81 @@ html[lang="ar"] .hero .eyebrow {
 .nav-logo img {
   height: 38px;
   width: auto;
+}
+
+/* Brand logo mark (navbar + footer).
+   /images/YA5T1-04.png is white artwork on transparent, so it is used as a MASK
+   rather than an <img>: the element's background-color becomes the logo colour,
+   which lets one file render navy on the white navbar and white on the navy
+   footer.
+
+   All crop values below are measured from the file's alpha channel. The artwork
+   is a VERTICAL lockup made of three bands (as a share of the square canvas):
+     bow mark  14.5% - 58.5%
+     IMPERIS   61.2% - 69.8%
+     YACHTS    74.2% - 77.8%
+   Because the bow mark takes ~2/3 of the height, showing the whole lockup in a
+   horizontal navbar leaves the wordmark too small to read. So the navbar masks
+   the WORDMARK BAND only (aspect 4.54, a wide horizontal lockup that suits the
+   bar and gives the letterforms the full height), while the footer — which has
+   vertical room — shows the FULL lockup (aspect 1.206).
+   Re-measure these six values if the artwork file is ever re-exported. */
+:root {
+  --logo-mask: url("/images/YA5T1-04.png");
+
+  /* Full lockup: bow mark + wordmark. Used in the footer. */
+  --logo-full-size: 131.6% auto;
+  --logo-full-pos: 50% 40.5%;
+  --logo-full-aspect: 1.206;
+
+  /* Wordmark only: IMPERIS + YACHTS. Used in the navbar. */
+  --logo-word-size: 132.2% auto;
+  --logo-word-pos: 50% 73.4%;
+  --logo-word-aspect: 4.54;
+
+  /* Rendered heights — the only two numbers to touch when resizing. */
+  --logo-nav-height: 46px;
+  --logo-footer-height: 132px;
+}
+.nav-logo-mark,
+.footer-logo-mark {
+  display: block;
+  -webkit-mask-image: var(--logo-mask);
+  mask-image: var(--logo-mask);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+.nav-logo-mark {
+  height: var(--logo-nav-height);
+  width: calc(var(--logo-nav-height) * var(--logo-word-aspect));
+  -webkit-mask-size: var(--logo-word-size);
+  mask-size: var(--logo-word-size);
+  -webkit-mask-position: var(--logo-word-pos);
+  mask-position: var(--logo-word-pos);
+  background-color: var(--color-primary);
+  transition: all 0.25s ease;
+}
+.nav-logo:hover .nav-logo-mark {
+  background-color: var(--color-secondary);
+}
+.footer-logo-mark {
+  height: var(--logo-footer-height);
+  width: calc(var(--logo-footer-height) * var(--logo-full-aspect));
+  -webkit-mask-size: var(--logo-full-size);
+  mask-size: var(--logo-full-size);
+  -webkit-mask-position: var(--logo-full-pos);
+  mask-position: var(--logo-full-pos);
+  background-color: #fff;
+}
+/* The navbar logo is a wide wordmark, so the bar needs less height than a
+   vertical lockup would. Everything that offsets against the navbar is
+   calc()'d from --navbar-height, so it all follows automatically. */
+@media (max-width: 767px) {
+  :root {
+    --navbar-height: 72px;
+    --logo-nav-height: 34px;
+    --logo-footer-height: 104px;
+  }
 }
 
 /* Desktop menu */
