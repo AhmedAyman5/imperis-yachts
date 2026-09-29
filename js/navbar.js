@@ -55,6 +55,7 @@ const NAVBAR_HTML_EN = `
 
       <li class="nav-item"><a class="nav-link" href="/pages/en/projects/projects.html">Projects &amp; Fleet</a></li>
       <li class="nav-item"><a class="nav-link" href="/pages/en/academy/academy.html">IMPERIS Academy</a></li>
+      <li class="nav-item"><a class="nav-link" href="/pages/en/exhibitions/exhibitions.html">Exhibitions</a></li>
     </ul>
 
     <div class="nav-actions">
@@ -99,6 +100,7 @@ const NAVBAR_HTML_EN = `
 
     <a class="m-link" href="/pages/en/projects/projects.html">Projects &amp; Fleet</a>
     <a class="m-link" href="/pages/en/academy/academy.html">IMPERIS Academy</a>
+    <a class="m-link" href="/pages/en/exhibitions/exhibitions.html">Exhibitions</a>
 
     <div class="m-footer">
       <a class="nav-lang" data-lang-switch href="#"><i data-lucide="languages"></i> العربية</a>
@@ -147,6 +149,7 @@ const NAVBAR_HTML_AR = `
 
       <li class="nav-item"><a class="nav-link" href="/pages/ar/projects/projects.html">مشروعاتنا وأسطولنا</a></li>
       <li class="nav-item"><a class="nav-link" href="/pages/ar/academy/academy.html">أكاديمية IMPERIS</a></li>
+      <li class="nav-item"><a class="nav-link" href="/pages/ar/exhibitions/exhibitions.html">المعارض</a></li>
     </ul>
 
     <div class="nav-actions">
@@ -191,6 +194,7 @@ const NAVBAR_HTML_AR = `
 
     <a class="m-link" href="/pages/ar/projects/projects.html">مشروعاتنا وأسطولنا</a>
     <a class="m-link" href="/pages/ar/academy/academy.html">أكاديمية IMPERIS</a>
+    <a class="m-link" href="/pages/ar/exhibitions/exhibitions.html">المعارض</a>
 
     <div class="m-footer">
       <a class="nav-lang" data-lang-switch href="#"><i data-lucide="languages"></i> EN</a>

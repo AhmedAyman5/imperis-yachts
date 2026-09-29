@@ -1,0 +1,265 @@
+/* =========================================================================
+   EXHIBITIONS & INDUSTRY EVENTS — page-specific styles (exhibitions.css)
+   Global rules (reset, colors, fonts, .container, .btn, .card, .hero,
+   .section, .section-head, navbar, footer) live in /style.css.
+   Colors/fonts only from the §6/§7 variables — no new colors; --dusty-denim
+   is the only accent. Category tags use existing palette values only.
+   Reveals are AOS (data-aos in the HTML); hovers are pure CSS.
+   This exact file is shared by EN + AR — RTL differences are handled by
+   html[lang="ar"] / html[dir="rtl"] rules.
+   ========================================================================= */
+
+/* Offset the in-page anchors so the sticky navbar never covers a heading */
+#why,
+#calendar {
+  scroll-margin-top: calc(var(--navbar-height) + 1.5rem);
+}
+
+/* Shared image-zoom wrapper (hover scale on the child media) */
+.img-zoom { overflow: hidden; border-radius: var(--radius-card); }
+
+/* ------------------------------------------------------------------ 1 · HERO */
+.page-hero { min-height: 82vh; }
+.scroll-indicator {
+  position: absolute; z-index: 2; bottom: 1.75rem; left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  color: #fff; border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: si-bounce 1.8s ease-in-out infinite;
+}
+.scroll-indicator svg { width: 22px; height: 22px; }
+.scroll-indicator:hover { background: rgba(255, 255, 255, 0.15); }
+@keyframes si-bounce { 0%,100% { transform: translate(-50%,0);} 50% { transform: translate(-50%,8px);} }
+
+/* --------------------------------------------- 2 · WHY EXHIBITIONS MATTER */
+.why-split {
+  display: grid;
+  gap: 2.5rem;
+  align-items: stretch;
+}
+@media (min-width: 900px) {
+  .why-split { grid-template-columns: 0.85fr 1.15fr; gap: 3.5rem; }
+}
+.why-media {
+  position: relative;
+  min-height: 320px;
+  box-shadow: var(--shadow-card);
+  background: linear-gradient(135deg, var(--midnight-blue), var(--dusty-denim));
+}
+.why-media img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: all 0.25s ease;
+}
+.why-media:hover img { transform: scale(1.05); }
+.why-copy p { color: var(--color-secondary); }
+.why-copy p + p { margin-top: 1.1rem; }
+.why-copy p:first-of-type { font-size: 1.15rem; color: var(--color-text); }
+html[lang="ar"] .why-copy p:first-of-type { font-size: 1.25rem; }
+
+/* Stat cards — same treatment as the Projects page */
+.stat-grid {
+  margin-top: 3.5rem; display: grid; gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr); text-align: center;
+}
+@media (min-width: 900px) { .stat-grid { grid-template-columns: repeat(4, 1fr); } }
+.stat {
+  background: var(--color-surface); border-radius: var(--radius-card);
+  padding: 2rem 1rem; transition: all 0.25s ease;
+}
+.stat:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+.stat-num {
+  display: block; font-family: var(--font-heading-en);
+  font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700;
+  color: var(--color-primary); line-height: 1.1;
+}
+html[lang="ar"] .stat-num { font-family: var(--font-heading-ar); }
+.stat-label { display: block; margin-top: 0.5rem; font-size: 0.88rem; color: var(--color-secondary); }
+
+/* ---------------------------------------------------------- 3 · FILTER BAR */
+.filter-bar {
+  position: sticky; top: var(--navbar-height); z-index: 500;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-block: 1px solid rgba(36, 58, 94, 0.08);
+  margin-bottom: 3rem;
+}
+.filter-inner {
+  max-width: 1200px; margin-inline: auto; padding: 0.9rem 1.5rem;
+  display: flex; gap: 0.6rem; overflow-x: auto;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.filter-inner::-webkit-scrollbar { display: none; }
+.filter-btn {
+  flex: 0 0 auto;
+  padding: 0.55rem 1.1rem; border-radius: 999px;
+  font-size: 0.92rem; font-weight: 500; white-space: nowrap;
+  color: var(--color-secondary);
+  border: 1px solid rgba(36, 58, 94, 0.15);
+  transition: all 0.25s ease;
+}
+.filter-btn:hover { color: var(--color-primary); border-color: var(--color-primary); }
+.filter-btn.is-active {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border-color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------- 3 · EXHIBITION GRID */
+.exh-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .exh-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .exh-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.exh-card {
+  background: #fff; border-radius: var(--radius-card); overflow: hidden;
+  box-shadow: var(--shadow-card); transition: all 0.25s ease;
+  display: flex; flex-direction: column;
+  border-top: 3px solid transparent;
+}
+.exh-card.is-hidden { display: none; }
+.exh-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-top-color: var(--color-secondary);
+}
+
+.exh-media { position: relative; overflow: hidden; aspect-ratio: 16 / 9; }
+.exh-media img { width: 100%; height: 100%; object-fit: cover; transition: all 0.25s ease; }
+.exh-card:hover .exh-media img { transform: scale(1.05); }
+
+/* Text-only cards get a little extra breathing room at the top */
+.exh-card--text .exh-body { padding-top: 1.75rem; }
+
+.exh-body {
+  padding: 1.5rem 1.5rem 1.75rem;
+  display: flex; flex-direction: column; flex: 1; gap: 0.75rem;
+}
+.exh-body h3 { font-size: 1.2rem; line-height: 1.3; }
+html[lang="ar"] .exh-body h3 { font-size: 1.35rem; }
+
+/* Category tag — palette values only (§6) */
+.exh-tag {
+  align-self: flex-start;
+  padding: 0.28rem 0.75rem; border-radius: 999px;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+html[lang="ar"] .exh-tag { letter-spacing: normal; text-transform: none; font-size: 0.85rem; }
+.exh-tag--egypt { background: var(--color-primary); color: var(--color-text-invert); }
+.exh-tag--middle-east { background: var(--color-secondary); color: var(--color-text-invert); }
+.exh-tag--international { background: var(--color-surface-alt); color: var(--color-primary); }
+
+/* "Attending" badge — rendered by exhibitions.js ONLY when attended === true */
+.exh-attending {
+  position: absolute; top: 0.9rem; inset-inline-start: 0.9rem;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.3rem 0.8rem; border-radius: 999px;
+  background: var(--color-accent); color: var(--color-primary);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em;
+}
+html[lang="ar"] .exh-attending { letter-spacing: normal; font-size: 0.82rem; }
+.exh-attending svg { width: 14px; height: 14px; }
+/* On a text-only card the badge sits inline rather than over an image */
+.exh-card--text .exh-attending { position: static; align-self: flex-start; }
+
+.exh-meta { display: flex; flex-direction: column; gap: 0.45rem; }
+.exh-meta li {
+  display: flex; align-items: flex-start; gap: 0.55rem;
+  font-size: 0.9rem; color: var(--color-secondary);
+}
+html[lang="ar"] .exh-meta li { font-size: 1rem; }
+.exh-meta svg {
+  width: 16px; height: 16px; flex: 0 0 auto; margin-top: 0.22rem;
+  color: var(--color-accent);
+}
+/* The note is pushed to the card's foot so notes line up across a row, while
+   the title + meta always sit directly under one another on every card. */
+.exh-note-line {
+  margin-top: auto;
+  font-size: 0.9rem; color: var(--color-secondary);
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(36, 58, 94, 0.1);
+}
+html[lang="ar"] .exh-note-line { font-size: 1rem; }
+
+.exh-empty {
+  text-align: center; color: var(--color-secondary);
+  padding: 3rem 1rem; font-size: 1.05rem;
+}
+.exh-note {
+  margin-top: 2.5rem; text-align: center;
+  font-size: 0.88rem; color: var(--color-secondary);
+}
+html[lang="ar"] .exh-note { font-size: 0.98rem; }
+
+/* ------------------------------------------------------- 4 · MEET US THERE */
+.meet-split { display: grid; gap: 2.5rem; align-items: stretch; }
+@media (min-width: 900px) {
+  .meet-split { grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; }
+}
+.meet-copy > p { color: var(--color-secondary); }
+.meet-list {
+  display: flex; flex-direction: column; gap: 1.5rem;
+  margin: 2rem 0;
+}
+.meet-list li { display: flex; align-items: flex-start; gap: 1rem; }
+.feat-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 50px; height: 50px; flex: 0 0 auto;
+  border-radius: 12px;
+  background: var(--color-surface); color: var(--color-primary);
+  transition: all 0.25s ease;
+}
+.feat-icon svg { width: 24px; height: 24px; }
+.meet-list li:hover .feat-icon { background: var(--color-accent); color: var(--color-primary); }
+.meet-list h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+html[lang="ar"] .meet-list h3 { font-size: 1.25rem; }
+.meet-list p { font-size: 0.94rem; color: var(--color-secondary); }
+html[lang="ar"] .meet-list p { font-size: 1.05rem; }
+.meet-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+.meet-media {
+  position: relative; min-height: 320px;
+  box-shadow: var(--shadow-card);
+  background: linear-gradient(135deg, var(--midnight-blue), var(--dusty-denim));
+}
+.meet-media img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: all 0.25s ease;
+}
+.meet-media:hover img { transform: scale(1.05); }
+
+/* -------------------------------------------------------- 5 · CLOSING CTA */
+.cta-band {
+  position: relative; padding-block: 6rem; text-align: center;
+  color: var(--color-text-invert); overflow: hidden;
+}
+.cta-band .cta-media {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+}
+.cta-band .hero-overlay { z-index: 1; }
+.cta-band .container { position: relative; z-index: 2; }
+.cta-band h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+.cta-band p { max-width: 560px; margin: 1rem auto 2rem; color: rgba(255, 255, 255, 0.9); }
+.cta-band .btn-primary { background: #fff; color: var(--color-primary); }
+.cta-band .btn-primary:hover {
+  background: var(--color-surface-alt); color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------------ Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator { animation: none; }
+  .why-media img,
+  .meet-media img,
+  .exh-media img,
+  .exh-card,
+  .stat,
+  .feat-icon { transition: none; }
+  .why-media:hover img,
+  .meet-media:hover img,
+  .exh-card:hover .exh-media img { transform: none; }
+  .exh-card:hover,
+  .stat:hover { transform: none; }
+}
