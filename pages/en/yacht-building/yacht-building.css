@@ -1,0 +1,277 @@
+/* =========================================================================
+   YACHT BUILDING PAGE — page-specific styles only (yacht-building.css)
+   Global rules (reset, colors, fonts, .container, .btn, .card, .hero,
+   .section, .section-head, navbar, footer) live in /style.css.
+   Only this page's own layout belongs here. Colors/fonts come only from the
+   §6/§7 variables — no new colors; --dusty-denim is the only accent.
+   ========================================================================= */
+
+/* ------------------------------------------------------------------ 1 · HERO */
+.page-hero {
+  min-height: 82vh;
+}
+
+/* Bouncing scroll indicator (pure CSS — §13) */
+.scroll-indicator {
+  position: absolute;
+  z-index: 2;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: si-bounce 1.8s ease-in-out infinite;
+}
+.scroll-indicator svg { width: 22px; height: 22px; }
+.scroll-indicator:hover { background: rgba(255, 255, 255, 0.15); }
+@keyframes si-bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator { animation: none; }
+}
+
+/* --------------------------------------------------- 2 · TWO WAYS TO BUILD */
+.way-card {
+  display: flex;
+  flex-direction: column;
+}
+.way-card h3 { margin-bottom: 0.75rem; }
+.way-card > p { color: var(--color-secondary); }
+.ticks {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.ticks li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.ticks li svg {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+html[dir="rtl"] .ticks li { text-align: right; }
+
+/* --------------------------------------------------- 3 · YACHT CATEGORIES */
+.cat-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+.cat-row {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .cat-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+  /* Alternate the image to the opposite side on every second row */
+  .cat-row--reverse .cat-media { order: 2; }
+}
+
+/* Image wrapper with subtle hover zoom */
+.img-zoom {
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.img-zoom img {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  max-height: 440px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.cat-row:hover .img-zoom img { transform: scale(1.04); }
+
+.cat-body h3 { margin-bottom: 0.9rem; }
+.cat-body > p {
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Spec figures */
+.cat-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(36, 58, 94, 0.12);
+  border-bottom: 1px solid rgba(36, 58, 94, 0.12);
+}
+.spec { text-align: center; }
+.spec-num {
+  display: block;
+  font-family: var(--font-heading-en);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+html[lang="ar"] .spec-num { font-family: var(--font-heading-ar); }
+.spec-label {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--color-secondary);
+}
+
+/* --------------------------------------------------------- 4 · HOW WE BUILD */
+.process-steps {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .process-steps { grid-template-columns: repeat(5, 1fr); }
+}
+.proc-step {
+  position: relative;
+  background: #fff;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+.proc-step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+.proc-num {
+  position: absolute;
+  top: 0.9rem;
+  inset-inline-end: 1.1rem;
+  font-family: var(--font-heading-en);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--color-surface-alt);
+  line-height: 1;
+}
+html[lang="ar"] .proc-num { font-family: var(--font-heading-ar); }
+.proc-step .card-icon { margin-inline: auto; }
+.proc-step h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.proc-step p { color: var(--color-secondary); font-size: 0.92rem; }
+
+.center-cta { margin-top: 3rem; text-align: center; }
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  transition: all 0.25s ease;
+}
+.link-arrow svg { width: 18px; height: 18px; transition: transform 0.25s ease; }
+.link-arrow:hover { color: var(--color-primary); }
+.link-arrow:hover svg { transform: translateX(4px); }
+html[dir="rtl"] .link-arrow svg { transform: scaleX(-1); }
+html[dir="rtl"] .link-arrow:hover svg { transform: scaleX(-1) translateX(4px); }
+
+/* -------------------------------------------------------- 5 · AFTER DELIVERY */
+.after-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .after-grid {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+  }
+}
+.after-copy .eyebrow {
+  display: inline-block;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+}
+html[lang="ar"] .after-copy .eyebrow { letter-spacing: normal; }
+.after-copy h2 { margin-bottom: 1.25rem; }
+.after-copy p { color: var(--color-secondary); margin-bottom: 1.75rem; }
+
+.after-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.after-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 1.25rem 1.5rem;
+  transition: all 0.25s ease;
+}
+.after-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+.after-item .card-icon { margin-bottom: 0; flex: 0 0 auto; }
+.after-item h3 { font-size: 1.05rem; }
+
+/* ------------------------------------------------------------ 6 · CLOSING CTA */
+.cta-band {
+  position: relative;
+  padding-block: 6rem;
+  text-align: center;
+  color: var(--color-text-invert);
+  overflow: hidden;
+}
+.cta-band .cta-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.cta-band .hero-overlay { z-index: 1; }
+.cta-band .container { position: relative; z-index: 2; }
+.cta-band h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+.cta-band p {
+  max-width: 560px;
+  margin: 1rem auto 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+/* The closing CTA button is the only action on a dark image — render it white
+   so it pops. (In the hero, the primary button keeps its midnight fill so it
+   stays distinct from the white .btn-light beside it.) */
+.cta-band .btn-primary {
+  background: #fff;
+  color: var(--color-primary);
+}
+.cta-band .btn-primary:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}

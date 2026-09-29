@@ -1,0 +1,664 @@
+/* =========================================================================
+   IMPERIS YACHTS — GLOBAL STYLESHEET (style.css)
+   Shared rules used by EVERY page: reset, color + font variables, base
+   typography, shared components (.container, .btn), and the shared
+   navbar + footer (whose markup lives only in /js/navbar.js & /js/footer.js).
+   Page-specific layout belongs in that page's own .css file — never here.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. Design tokens — colors (§6)
+   ------------------------------------------------------------------------- */
+:root {
+  --midnight-blue: #243a5e;
+  --powder-sky: #cfe3f1;
+  --calm-ocean: #8fb6d8;
+  --cloud-blue: #edf4fa;
+  --dusty-denim: #5f86a6;
+
+  /* Semantic aliases — use THESE names in components */
+  --color-primary: var(--midnight-blue);
+  --color-secondary: var(--dusty-denim);
+  --color-accent: var(--calm-ocean);
+  --color-surface: var(--cloud-blue);
+  --color-surface-alt: var(--powder-sky);
+  --color-text: var(--midnight-blue);
+  --color-text-invert: #ffffff;
+
+  /* -----------------------------------------------------------------------
+     2. Design tokens — typography (§7)
+     --------------------------------------------------------------------- */
+  --font-heading-en: "Playfair Display", serif;
+  --font-body-en: "Poppins", sans-serif;
+  --font-heading-ar: "Markazi Text", serif;
+  --font-body-ar: "Cairo", sans-serif;
+
+  /* Shared spacing / shape scale — keeps every page consistent */
+  --radius-card: 10px;
+  --shadow-card: 0 8px 24px rgba(36, 58, 94, 0.1);
+  --shadow-card-hover: 0 14px 34px rgba(36, 58, 94, 0.18);
+  --section-space: 5rem;
+  --navbar-height: 76px;
+}
+
+/* -------------------------------------------------------------------------
+   3. Reset (§8)
+   ------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul,
+ol {
+  list-style: none;
+}
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+body {
+  color: var(--color-text);
+  background: #fff;
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------------------------
+   4. Base typography — font switch driven purely by <html lang> (§7)
+   ------------------------------------------------------------------------- */
+html[lang="en"] body {
+  font-family: var(--font-body-en);
+}
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] h4 {
+  font-family: var(--font-heading-en);
+}
+
+html[lang="ar"] body {
+  font-family: var(--font-body-ar);
+}
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4 {
+  font-family: var(--font-heading-ar);
+}
+
+h1 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  font-weight: 700;
+}
+h2 {
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 600;
+}
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 600;
+}
+p {
+  font-size: 1.02rem;
+}
+
+/* Arabic reads slightly larger for comfortable legibility */
+html[lang="ar"] p {
+  font-size: 1.12rem;
+}
+
+/* -------------------------------------------------------------------------
+   5. Shared layout utilities (§8 + §13)
+   ------------------------------------------------------------------------- */
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section {
+  padding-block: var(--section-space);
+}
+.section--surface {
+  background: var(--color-surface);
+}
+.section--surface-alt {
+  background: var(--color-surface-alt);
+}
+
+/* Centered section heading block */
+.section-head {
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.section-head .eyebrow {
+  display: inline-block;
+  font-family: var(--font-body-en);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+}
+html[lang="ar"] .section-head .eyebrow {
+  font-family: var(--font-body-ar);
+  letter-spacing: normal;
+}
+.section-head p {
+  margin-top: 1rem;
+  color: var(--color-secondary);
+}
+
+/* Reusable card (§13 — one card design across the whole site) */
+.card {
+  background: #fff;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 2rem;
+  transition: all 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+.card .card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+}
+.card .card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+.card h3 {
+  margin-bottom: 0.6rem;
+}
+.card p {
+  color: var(--color-secondary);
+  font-size: 0.98rem;
+}
+
+/* Simple responsive grid helper */
+.grid {
+  display: grid;
+  gap: 1.75rem;
+}
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* -------------------------------------------------------------------------
+   6. Shared hero utility (§13 — large hero, dark overlay, centered serif)
+   Uses a brand gradient so it never renders as a broken image; individual
+   pages layer a real photo/video behind .hero-media when one is sourced.
+   ------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 68vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text-invert);
+  overflow: hidden;
+  background: linear-gradient(135deg, #1b2c47 0%, var(--midnight-blue) 45%, var(--dusty-denim) 100%);
+}
+.hero .hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(27, 44, 71, 0.35), rgba(27, 44, 71, 0.7));
+  z-index: 1;
+}
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+.hero .eyebrow {
+  display: inline-block;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-family: var(--font-body-en);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-surface-alt);
+  margin-bottom: 1rem;
+}
+html[lang="ar"] .hero .eyebrow {
+  font-family: var(--font-body-ar);
+  letter-spacing: normal;
+}
+.hero h1 {
+  max-width: 900px;
+  margin-inline: auto;
+}
+.hero p {
+  max-width: 640px;
+  margin: 1.25rem auto 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.hero .hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* -------------------------------------------------------------------------
+   7. Shared buttons (§8)
+   ------------------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-text-invert);
+}
+.btn-primary:hover {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+}
+.btn-outline {
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: var(--color-text-invert);
+}
+/* Light variants for use over dark hero backgrounds */
+.btn-light {
+  background: #fff;
+  color: var(--color-primary);
+}
+.btn-light:hover {
+  background: var(--color-surface-alt);
+  transform: translateY(-2px);
+}
+.btn-outline-light {
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  color: #fff;
+}
+.btn-outline-light:hover {
+  background: #fff;
+  color: var(--color-primary);
+}
+
+/* =========================================================================
+   8. SHARED NAVBAR  (markup injected by /js/navbar.js — styles live here
+   because the navbar is a shared, every-page component)
+   ========================================================================= */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(36, 58, 94, 0.08);
+}
+.site-nav .nav-inner {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 0 1.5rem;
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading-en);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+.nav-logo img {
+  height: 38px;
+  width: auto;
+}
+
+/* Desktop menu */
+.nav-menu {
+  display: none;
+  align-items: center;
+  gap: 0.35rem;
+}
+.nav-item {
+  position: relative;
+}
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.nav-link:hover {
+  color: var(--color-secondary);
+  background: var(--color-surface);
+}
+.nav-link .chev {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
+}
+.nav-item.open > .nav-link .chev {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-start: 0;
+  min-width: 260px;
+  background: #fff;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(36, 58, 94, 0.08);
+  padding: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.2s ease;
+}
+.nav-item.open > .nav-dropdown,
+.nav-item:hover > .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-dropdown a {
+  display: block;
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  color: var(--color-text);
+  transition: all 0.2s ease;
+}
+.nav-dropdown a:hover {
+  background: var(--color-surface);
+  color: var(--color-secondary);
+}
+
+/* Right-hand actions */
+.nav-actions {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+.nav-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  border: 1px solid rgba(36, 58, 94, 0.15);
+  transition: all 0.25s ease;
+}
+.nav-lang:hover {
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+.nav-lang svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Hamburger (mobile only) */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+.nav-toggle svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Mobile panel */
+.nav-mobile {
+  display: none;
+  border-top: 1px solid rgba(36, 58, 94, 0.08);
+  background: #fff;
+  padding: 1rem 1.5rem 2rem;
+  max-height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
+}
+.nav-mobile.open {
+  display: block;
+}
+.nav-mobile .m-group > button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  border-bottom: 1px solid rgba(36, 58, 94, 0.08);
+}
+.nav-mobile .m-group > button svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+.nav-mobile .m-group.open > button svg {
+  transform: rotate(180deg);
+}
+.nav-mobile .m-sub {
+  display: none;
+  padding: 0.25rem 0 0.75rem 1rem;
+}
+.nav-mobile .m-group.open .m-sub {
+  display: block;
+}
+.nav-mobile .m-sub a,
+.nav-mobile > a.m-link {
+  display: block;
+  padding: 0.65rem 0.25rem;
+  color: var(--color-text);
+  font-size: 0.98rem;
+}
+.nav-mobile > a.m-link {
+  font-weight: 600;
+  border-bottom: 1px solid rgba(36, 58, 94, 0.08);
+}
+.nav-mobile .m-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+@media (min-width: 1024px) {
+  .nav-menu,
+  .nav-actions {
+    display: flex;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .nav-mobile {
+    display: none !important;
+  }
+}
+
+/* =========================================================================
+   9. SHARED FOOTER  (markup injected by /js/footer.js)
+   ========================================================================= */
+.site-footer {
+  background: var(--color-primary);
+  color: rgba(255, 255, 255, 0.82);
+  padding-top: 4rem;
+}
+.site-footer a {
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 0.25s ease;
+}
+.site-footer a:hover {
+  color: #fff;
+}
+.footer-grid {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  padding-bottom: 3rem;
+}
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  }
+}
+.footer-brand .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading-en);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.footer-brand .footer-logo img {
+  height: 40px;
+}
+.footer-brand p {
+  font-size: 0.95rem;
+  max-width: 34ch;
+}
+.footer-col h4 {
+  color: #fff;
+  font-size: 1.05rem;
+  margin-bottom: 1.1rem;
+}
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.94rem;
+}
+.footer-contact .f-block {
+  margin-bottom: 1.25rem;
+  font-size: 0.94rem;
+  font-style: normal;
+}
+.footer-contact .f-block strong {
+  display: block;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.25s ease;
+}
+.footer-social a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+}
+.footer-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* -------------------------------------------------------------------------
+   10. Utility: skeleton "content coming" note used by stub pages until each
+   page is built out one-at-a-time (§16). Safe to delete per page.
+   ------------------------------------------------------------------------- */
+.page-stub-note {
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+  color: var(--color-secondary);
+}
+.page-stub-note .card-icon {
+  margin-inline: auto;
+}

@@ -1,0 +1,441 @@
+/* =========================================================================
+   HOME PAGE — page-specific styles only (index.css)
+   Global rules (reset, colors, fonts, .container, .btn, .card, .hero,
+   navbar, footer) live in /style.css. Only the Home page's own layout
+   belongs here. Colors/fonts come only from the §6/§7 variables.
+   ========================================================================= */
+
+/* ------------------------------------------------------------------ 1 · HERO */
+.home-hero {
+  min-height: 92vh;
+}
+
+/* Bouncing scroll indicator (pure CSS — §13) */
+.scroll-indicator {
+  position: absolute;
+  z-index: 2;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: si-bounce 1.8s ease-in-out infinite;
+}
+.scroll-indicator svg {
+  width: 22px;
+  height: 22px;
+}
+.scroll-indicator:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+@keyframes si-bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator { animation: none; }
+}
+
+/* ------------------------------------------------------- 2 · ABOUT + STATS */
+.about-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4rem;
+  }
+}
+.about-copy .eyebrow {
+  display: inline-block;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+}
+html[lang="ar"] .about-copy .eyebrow { letter-spacing: normal; }
+.about-copy h2 { margin-bottom: 1.25rem; }
+.about-copy p {
+  color: var(--color-secondary);
+  margin-bottom: 1.1rem;
+}
+.about-copy .btn { margin-top: 0.5rem; }
+
+/* Two-image collage */
+.about-media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+.about-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.about-img--tall {
+  grid-row: 1 / 3;
+  min-height: 260px;
+}
+.about-img--wide {
+  grid-column: 2 / 3;
+  align-self: end;
+  min-height: 180px;
+}
+
+/* Stats band */
+.stats {
+  margin-top: 4rem;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+}
+@media (min-width: 900px) {
+  .stats { grid-template-columns: repeat(4, 1fr); }
+}
+.stat {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 2rem 1rem;
+  transition: all 0.25s ease;
+}
+.stat:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+.stat-num {
+  display: block;
+  font-family: var(--font-heading-en);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+html[lang="ar"] .stat-num { font-family: var(--font-heading-ar); }
+.stat-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+}
+
+/* --------------------------------------------------------- 3 · WHAT WE BUILD */
+/* Image-topped card variant built on the shared .card */
+.build-card {
+  padding: 0;
+  overflow: hidden;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+.build-img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+.build-body {
+  padding: 1.75rem;
+}
+.build-body .card-icon { margin-top: -3.4rem; position: relative; background: #fff; box-shadow: var(--shadow-card); }
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  transition: all 0.25s ease;
+}
+.card-link svg { width: 18px; height: 18px; transition: transform 0.25s ease; }
+.build-card:hover .card-link { color: var(--color-primary); }
+.build-card:hover .card-link svg { transform: translateX(4px); }
+html[dir="rtl"] .card-link svg { transform: scaleX(-1); }
+html[dir="rtl"] .build-card:hover .card-link svg { transform: scaleX(-1) translateX(4px); }
+
+/* -------------------------------------------------------- 4 · CRAFTSMANSHIP */
+.lede {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  color: var(--color-secondary);
+  font-size: 1.08rem;
+}
+html[lang="ar"] .lede { font-size: 1.18rem; }
+
+.craft-gallery {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 3.5rem;
+}
+@media (min-width: 768px) {
+  .craft-gallery { grid-template-columns: repeat(3, 1fr); }
+}
+.craft-gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s ease;
+}
+.craft-gallery img:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Feature list */
+.features { gap: 1.75rem; }
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.feature .card-icon { flex: 0 0 auto; margin-bottom: 0; }
+.feature h3 { margin-bottom: 0.35rem; }
+.feature p { color: var(--color-secondary); font-size: 0.98rem; }
+
+/* ------------------------------------------------------- 5 · FLEET & PROJECTS */
+.fleet-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 1024px) {
+  .fleet-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.fleet-item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  aspect-ratio: 3 / 4;
+}
+.fleet-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.fleet-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(36, 58, 94, 0);
+  transition: background 0.25s ease;
+}
+.fleet-item:hover img { transform: scale(1.04); }
+.fleet-item:hover::after { background: rgba(36, 58, 94, 0.18); }
+
+.center-cta {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+/* -------------------------------------------------------------- 6 · ACADEMY */
+.academy-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .academy-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+.academy-media img {
+  width: 100%;
+  height: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.academy-copy .eyebrow {
+  display: inline-block;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+}
+html[lang="ar"] .academy-copy .eyebrow { letter-spacing: normal; }
+.academy-copy h2 { margin-bottom: 1.25rem; }
+.academy-copy p { color: var(--color-primary); margin-bottom: 1.75rem; }
+
+/* ------------------------------------------------------------ 7 · CLOSING CTA */
+.cta-band {
+  position: relative;
+  padding-block: 6rem;
+  text-align: center;
+  color: var(--color-text-invert);
+  overflow: hidden;
+}
+.cta-band .cta-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.cta-band .hero-overlay { z-index: 1; }
+.cta-band .container { position: relative; z-index: 2; }
+.cta-band h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+.cta-band p {
+  max-width: 560px;
+  margin: 1rem auto 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+/* The closing CTA button is the only action on a dark image — render it
+   white so it pops. (In the hero, the primary button keeps its midnight
+   fill so it stays visually distinct from the white .btn-light beside it.) */
+.cta-band .btn-primary {
+  background: #fff;
+  color: var(--color-primary);
+}
+.cta-band .btn-primary:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* =========================================================================
+   ADDITIVE ENHANCEMENTS
+   ========================================================================= */
+
+/* --- Hero Ken Burns (slow zoom); disabled under reduced-motion --- */
+@media (prefers-reduced-motion: no-preference) {
+  .home-hero .hero-media {
+    animation: ken-burns 20s ease-in-out infinite alternate;
+    transform-origin: center;
+  }
+}
+@keyframes ken-burns {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+
+/* --- Feature/perf icon hover (accent fill) --- */
+.card-icon { transition: all 0.25s ease; }
+.feature:hover .card-icon,
+.perf-point:hover .card-icon {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* --- Craftsmanship: Engineering & Performance sub-block --- */
+.perf-block {
+  margin-top: 4.5rem;
+}
+.perf-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.perf-header .eyebrow {
+  display: inline-block;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+html[lang="ar"] .perf-header .eyebrow { letter-spacing: normal; }
+.perf-media {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 2.75rem;
+}
+@media (min-width: 768px) {
+  .perf-media { grid-template-columns: 1fr 1fr; }
+}
+.perf-media img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.perf-point { text-align: center; }
+.perf-point .card-icon { margin-inline: auto; }
+.perf-point h3 { margin-bottom: 0.4rem; }
+.perf-point p { color: var(--color-secondary); font-size: 0.98rem; }
+
+/* --- Academy: media row + how-it-works track + hiring stat --- */
+.academy-extra { margin-top: 3.5rem; }
+.academy-media-row {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 3.5rem;
+}
+@media (min-width: 640px) {
+  .academy-media-row { grid-template-columns: 1fr 1fr; }
+}
+.academy-media-row img,
+.academy-clip {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+/* Branded fallback shown while the clip streams (or if a browser can't
+   autoplay it), so the card is never a blank white box. The video paints
+   over this once it has buffered. */
+.academy-clip {
+  background: linear-gradient(135deg, var(--midnight-blue), var(--dusty-denim));
+}
+.track-title {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+.step-card {
+  position: relative;
+  background: #fff;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 2.25rem 1.75rem;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+.step-num {
+  position: absolute;
+  top: 1rem;
+  inset-inline-end: 1.25rem;
+  font-family: var(--font-heading-en);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-surface-alt);
+  line-height: 1;
+}
+html[lang="ar"] .step-num { font-family: var(--font-heading-ar); }
+.step-card .card-icon { margin-inline: auto; }
+.step-card h3 { margin-bottom: 0.5rem; }
+.step-card p { color: var(--color-secondary); font-size: 0.96rem; }
+.academy-stat {
+  max-width: 360px;
+  margin: 3rem auto 0;
+}
+.academy-stat .stat { background: #fff; }

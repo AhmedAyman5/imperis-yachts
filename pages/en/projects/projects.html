@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-alt-lang-href="/pages/ar/projects/projects.html">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects &amp; Fleet | IMPERIS YACHTS</title>
+  <meta name="description"
+    content="The IMPERIS YACHTS fleet — delivered yachts, vessels under construction, concepts, refits and commercial craft, all designed and built on the Gulf of Suez." />
+
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Global styles (always first) -->
+  <link rel="stylesheet" href="/style.css" />
+  <!-- Page-specific styles (always second, so it can override) -->
+  <link rel="stylesheet" href="projects.css" />
+
+  <!-- Fonts: same single import on every page (EN + AR families together) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&family=Markazi+Text:wght@500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Scroll animation library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="navbar-root"></div>
+
+  <main id="page-content">
+    <!-- ============================================================ 1 · HERO -->
+    <header class="hero page-hero">
+      <!-- PLACEHOLDER MEDIA — replace with real IMPERIS photography/footage -->
+      <video class="hero-media" autoplay muted loop playsinline
+        poster="https://images.pexels.com/videos/2711234/free-video-2711234.jpg?auto=compress&cs=tinysrgb&w=1920">
+        <source src="https://videos.pexels.com/video-files/2711234/2711234-uhd_2560_1440_24fps.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+
+      <div class="container" data-aos="fade-in">
+        <span class="eyebrow">Projects &amp; Fleet</span>
+        <h1>Our Fleet</h1>
+        <p>
+          Every vessel on this page left the same shipyard on the Gulf of Suez —
+          designed, built, and signed off by the same team. Some are cruising
+          today; some are still steel on the shop floor.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="#fleet">Browse The Fleet</a>
+          <a class="btn btn-primary" href="#portfolio">Request Full Portfolio</a>
+        </div>
+      </div>
+
+      <a class="scroll-indicator" href="#glance" aria-label="Scroll to content">
+        <i data-lucide="chevron-down"></i>
+      </a>
+    </header>
+
+    <!-- ================================================ 2 · FLEET AT A GLANCE -->
+    <section class="section" id="glance">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Fleet At A Glance</span>
+          <h2>A Record, Not A Catalogue</h2>
+        </div>
+
+        <p class="prose" data-aos="fade-up">
+          A shipyard's portfolio is the only claim it makes that can't be
+          rewritten. Every hull here carries a delivery date, a classification
+          record, and an owner who can be asked how it has held up. We list
+          vessels under construction alongside delivered ones deliberately — a
+          yard that only shows finished work is showing you the edited version.
+          What follows is the full picture: what's on the water, what's in build,
+          what's on the drawing board, and what came back to us for a second life.
+        </p>
+
+        <!-- CONFIRM WITH CLIENT: verify all fleet figures below -->
+        <div class="stat-grid">
+          <div class="stat" data-aos="zoom-in">
+            <span class="stat-num">150+</span>
+            <span class="stat-label">Vessels Built &amp; Refitted</span>
+          </div>
+          <div class="stat" data-aos="zoom-in" data-aos-delay="100">
+            <span class="stat-num">2000</span>
+            <span class="stat-label">Building Since</span>
+          </div>
+          <div class="stat" data-aos="zoom-in" data-aos-delay="200">
+            <span class="stat-num">6</span>
+            <span class="stat-label">Vessel Categories</span>
+          </div>
+          <div class="stat" data-aos="zoom-in" data-aos-delay="300">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Built In-House</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== 3 · THE FLEET -->
+    <section class="section section--surface" id="fleet">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">The Fleet</span>
+          <h2>Browse Every Project</h2>
+          <p>Filter by where each vessel is in its life — on the water, in build, on the board, or back for a refit.</p>
+        </div>
+      </div>
+
+      <!-- Sticky filter bar -->
+      <div class="filter-bar" role="tablist" aria-label="Filter the fleet">
+        <div class="filter-inner">
+          <button class="filter-btn is-active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="delivered">Delivered</button>
+          <button class="filter-btn" data-filter="under-construction">Under Construction</button>
+          <button class="filter-btn" data-filter="concepts">Concepts</button>
+          <button class="filter-btn" data-filter="refit">Refit Projects</button>
+          <button class="filter-btn" data-filter="commercial">Commercial Projects</button>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Cards are rendered from the PROJECTS array in projects.js -->
+        <div class="fleet-grid" id="fleet-grid"></div>
+        <p class="fleet-empty" id="fleet-empty" hidden>No projects in this category yet — more coming soon.</p>
+      </div>
+    </section>
+
+    <!-- Full-spec modal (populated by projects.js) -->
+    <div class="spec-modal" id="spec-modal" hidden role="dialog" aria-modal="true" aria-labelledby="spec-title">
+      <div class="spec-backdrop" data-close-spec></div>
+      <div class="spec-dialog">
+        <button class="spec-close" data-close-spec aria-label="Close specification"><i data-lucide="x"></i></button>
+        <div class="spec-body" id="spec-body"></div>
+      </div>
+    </div>
+
+    <!-- ==================================================== 4 · HOW A PROJECT RUNS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">How A Project Runs</span>
+          <h2>From Contract To Commissioning</h2>
+          <p>Every project on this page moved through the same sequence. There are no shortcuts in it — only the amount
+            of time each stage takes changes.</p>
+        </div>
+
+        <div class="run-steps">
+          <div class="run-step" data-aos="fade-up">
+            <span class="feat-icon"><i data-lucide="file-signature"></i></span>
+            <h3>Contract &amp; Brief</h3>
+            <p>Scope, specification, and delivery date agreed before any engineering begins.</p>
+          </div>
+          <div class="run-step" data-aos="fade-up" data-aos-delay="100">
+            <span class="feat-icon"><i data-lucide="pencil-ruler"></i></span>
+            <h3>Design &amp; Class Approval</h3>
+            <p>Naval architecture and structural work submitted for classification review.</p>
+          </div>
+          <div class="run-step" data-aos="fade-up" data-aos-delay="200">
+            <span class="feat-icon"><i data-lucide="hammer"></i></span>
+            <h3>Build &amp; Inspection</h3>
+            <p>Fabrication, systems, and fit-out inside our own yard, inspected at every stage.</p>
+          </div>
+          <div class="run-step" data-aos="fade-up" data-aos-delay="300">
+            <span class="feat-icon"><i data-lucide="anchor"></i></span>
+            <h3>Trials &amp; Delivery</h3>
+            <p>Harbour and sea trials completed, then handover with full documentation.</p>
+          </div>
+        </div>
+
+        <p class="center-cta" data-aos="fade-up">
+          <a class="link-arrow" href="/pages/en/design-engineering/design-engineering.html">See the engineering behind
+            every project <i data-lucide="arrow-right"></i></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================================================== 5 · REQUEST PORTFOLIO -->
+    <section class="section section--surface-alt" id="portfolio">
+      <div class="container">
+        <div class="portfolio-panel" data-aos="fade-up">
+          <div class="portfolio-media">
+            <!-- PLACEHOLDER MEDIA — replace with real IMPERIS photography/footage -->
+            <img
+              src="https://images.pexels.com/photos/8323135/pexels-photo-8323135.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Yachts moored in a quiet harbour at first light" loading="lazy" />
+          </div>
+          <div class="portfolio-copy">
+            <span class="eyebrow">Private &amp; Commercial</span>
+            <h2>Request The Full Portfolio</h2>
+            <p>
+              Not every project we've delivered is public. Owners value discretion,
+              and several commercial clients prefer their fleets stay off a website.
+              Our complete portfolio — including vessels not listed here, full
+              specification sheets, and photography from delivery and sea trials —
+              is available on request to owners, brokers, and commercial operators
+              evaluating a build.
+            </p>
+
+            <!-- CONFIRM WITH CLIENT: no backend on this static site. This form needs a handler — options are a mailto: fallback, Formspree/Web3Forms, or Hostinger's form handling. Ask the client which they want before launch. -->
+            <form class="portfolio-form" id="portfolio-form" novalidate>
+              <div class="field">
+                <label for="pf-name">Name</label>
+                <input type="text" id="pf-name" name="name" required autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="pf-email">Email</label>
+                <input type="email" id="pf-email" name="email" required autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="pf-company">Company</label>
+                <input type="text" id="pf-company" name="company" autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="pf-interest">Project interest</label>
+                <select id="pf-interest" name="interest">
+                  <option value="">Select a category…</option>
+                  <option value="Delivered">Delivered</option>
+                  <option value="Under Construction">Under Construction</option>
+                  <option value="Concepts">Concepts</option>
+                  <option value="Refit Projects">Refit Projects</option>
+                  <option value="Commercial Projects">Commercial Projects</option>
+                </select>
+              </div>
+              <div class="field field--full">
+                <label for="pf-message">Message <span class="opt">(optional)</span></label>
+                <textarea id="pf-message" name="message" rows="3"></textarea>
+              </div>
+              <div class="field--full">
+                <button type="submit" class="btn btn-primary">Request Portfolio</button>
+                <p class="form-reassure">We'll only use your details to send the portfolio.</p>
+              </div>
+            </form>
+            <p class="form-success" id="form-success" tabindex="-1" hidden></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== 6 · CLOSING CTA -->
+    <section class="cta-band">
+      <!-- PLACEHOLDER MEDIA — replace with real IMPERIS photography/footage -->
+      <img class="cta-media"
+        src="https://images.pexels.com/photos/39238762/pexels-photo-39238762.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        alt="A marina of moored yachts at twilight" loading="lazy" />
+      <div class="hero-overlay"></div>
+      <div class="container" data-aos="zoom-in">
+        <h2>Your Project Could Be Next On This Page</h2>
+        <p>Tell us what you want built, and we'll tell you what it takes.</p>
+        <a class="btn btn-primary" href="/pages/en/contact/contact.html">Start The Conversation</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <script src="/js/navbar.js" defer></script>
+  <script src="/js/footer.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true });
+  </script>
+  <script src="projects.js" defer></script>
+</body>
+
+</html>
