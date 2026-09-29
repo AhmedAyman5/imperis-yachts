@@ -38,7 +38,8 @@ const EXHIBITIONS = [
     venue: "Cairo International Convention Centre (CICC)",
     dates: "5–8 February 2026", edition: "8th edition · past",
     category: "egypt", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/42091/pexels-photo-42091.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Rows of yachts berthed side by side at a marina under a clear blue sky",
     notes: "Opened by the Deputy Prime Minister for Industrial Development, with locally manufactured boats and yachts a central theme.",
     notesAr: "افتُتحت بحضور نائب رئيس مجلس الوزراء للتنمية الصناعية، وكانت القوارب واليخوت المصنّعة محليًا محورًا رئيسيًا فيها."
   },
@@ -49,7 +50,8 @@ const EXHIBITIONS = [
     venue: "Cairo International Convention Centre (CICC)",
     dates: "6–9 February 2025", edition: "7th edition · past",
     category: "egypt", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/27951598/pexels-photo-27951598.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Sleek white motor yacht moored at a dock in warm afternoon light",
     notes: "", notesAr: ""
   },
   {
@@ -59,7 +61,8 @@ const EXHIBITIONS = [
     venue: "Marassi Marina Yacht Club, Emaar Misr",
     dates: "11–14 July 2024", edition: "6th edition · past",
     category: "egypt", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/38726978/pexels-photo-38726978.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Luxury yachts anchored in a sheltered bay on clear blue water beneath an open sky",
     notes: "The first waterfront edition, held at Marassi Marina on Egypt's North Coast.",
     notesAr: "أول دورة تُقام على الواجهة البحرية، في مارينا مراسي بالساحل الشمالي."
   },
@@ -70,7 +73,8 @@ const EXHIBITIONS = [
     venue: "North Coast",
     dates: "Dates to be confirmed", edition: "",
     category: "egypt", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/39076874/pexels-photo-39076874.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Luxury yacht moored in a sunlit Mediterranean harbour",
     notes: "Egypt's North Coast marine exhibition. Current edition dates to be confirmed with the organiser.",
     notesAr: "المعرض البحري بالساحل الشمالي المصري. تُؤكَّد مواعيد الدورة الحالية من الجهة المنظمة."
   },
@@ -94,7 +98,8 @@ const EXHIBITIONS = [
     venue: "Dubai Harbour",
     dates: "Annual", edition: "",
     category: "middle-east", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/31714607/pexels-photo-31714607.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Aerial view of a white motor yacht cutting through turquoise ocean water",
     notes: "", notesAr: ""
   },
   {
@@ -104,7 +109,8 @@ const EXHIBITIONS = [
     venue: "Dubai Creek Marina, Park Hyatt",
     dates: "31 October – 2 November", edition: "11th edition",
     category: "middle-east", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/5996373/pexels-photo-5996373.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Aerial view of motor yachts and a sailing vessel on the open sea",
     notes: "", notesAr: ""
   },
   {
@@ -114,7 +120,8 @@ const EXHIBITIONS = [
     venue: "Old Doha Port",
     dates: "4–7 November 2026", edition: "3rd edition",
     category: "middle-east", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/8356437/pexels-photo-8356437.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "View forward from the bow of a luxury yacht on calm water",
     notes: "The second edition drew over 27,000 visitors across four days, with 505 brands and 65 vessels from 105 countries.",
     notesAr: "استقطبت الدورة الثانية أكثر من 27,000 زائر على مدى أربعة أيام، بمشاركة 505 علامة تجارية و65 مركبة من 105 دول."
   },
@@ -125,7 +132,8 @@ const EXHIBITIONS = [
     venue: "Khiran Marina",
     dates: "28–31 January 2026", edition: "",
     category: "middle-east", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/8299833/pexels-photo-8299833.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Aerial view of a luxury yacht anchored near a rocky coastline",
     notes: "Kuwait's first boat show in seven years.",
     notesAr: "أول معرض قوارب في الكويت منذ سبع سنوات."
   },
@@ -161,7 +169,8 @@ const EXHIBITIONS = [
     venue: "RAI Exhibition & Congress Centre",
     dates: "17–19 November 2026", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/36803733/pexels-photo-36803733.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Yachts and large vessels on open water with a mountain backdrop",
     notes: "The world's largest marine equipment trade exhibition — suppliers and technology rather than finished vessels.",
     notesAr: "أكبر معرض تجاري عالمي لمعدات الصناعة البحرية — موجّه للمورّدين والتقنيات لا للمركبات المكتملة."
   },
@@ -183,7 +192,8 @@ const EXHIBITIONS = [
     venue: "Messe Düsseldorf",
     dates: "23–31 January 2027", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/37385664/pexels-photo-37385664.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Luxury yachts moored along a European harbour, black and white",
     notes: "One of the largest indoor water sports and boating exhibitions in the world.",
     notesAr: "من أكبر معارض الرياضات المائية والقوارب المغلقة في العالم."
   },
@@ -194,7 +204,8 @@ const EXHIBITIONS = [
     venue: "Vieux Port & Port Canto",
     dates: "Annual, September", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/31758539/pexels-photo-31758539.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Luxury yacht berthed against Riviera waterfront architecture",
     notes: "", notesAr: ""
   },
   {
@@ -204,7 +215,8 @@ const EXHIBITIONS = [
     venue: "Waterfront di Levante",
     dates: "Annual, September", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/13348226/pexels-photo-13348226.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Dark-hulled yacht under way in Italian coastal waters",
     notes: "", notesAr: ""
   },
   {
@@ -214,7 +226,8 @@ const EXHIBITIONS = [
     venue: "",
     dates: "Annual, March", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/31383441/pexels-photo-31383441.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Elegant motor yachts moored together in a sheltered harbour",
     notes: "", notesAr: ""
   },
   {
@@ -224,7 +237,8 @@ const EXHIBITIONS = [
     venue: "Messe Friedrichshafen",
     dates: "Annual, September", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/18649940/pexels-photo-18649940.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Motor yacht at a quayside berth, black and white",
     notes: "", notesAr: ""
   },
   {
@@ -234,7 +248,8 @@ const EXHIBITIONS = [
     venue: "KINTEX",
     dates: "6–8 March 2026", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/38695253/pexels-photo-38695253.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "Luxury yachts lined along a harbour quay, black and white",
     notes: "", notesAr: ""
   }
 ];

@@ -38,7 +38,8 @@ const EXHIBITIONS = [
     venue: "مركز القاهرة الدولي للمؤتمرات (CICC)",
     dates: "5–8 فبراير 2026", edition: "الدورة الثامنة · سابقة",
     category: "egypt", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/42091/pexels-photo-42091.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "صفوف من اليخوت راسية جنبًا إلى جنب في مارينا تحت سماء زرقاء صافية",
     notes: "Opened by the Deputy Prime Minister for Industrial Development, with locally manufactured boats and yachts a central theme.",
     notesAr: "افتُتحت بحضور نائب رئيس مجلس الوزراء للتنمية الصناعية، وكانت القوارب واليخوت المصنّعة محليًا محورًا رئيسيًا فيها."
   },
@@ -49,7 +50,8 @@ const EXHIBITIONS = [
     venue: "مركز القاهرة الدولي للمؤتمرات (CICC)",
     dates: "6–9 فبراير 2025", edition: "الدورة السابعة · سابقة",
     category: "egypt", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/27951598/pexels-photo-27951598.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "يخت أبيض أنيق بمحرك راسٍ عند الرصيف في ضوء أصيل دافئ",
     notes: "", notesAr: ""
   },
   {
@@ -59,7 +61,8 @@ const EXHIBITIONS = [
     venue: "نادي مارينا مراسي لليخوت، إعمار مصر",
     dates: "11–14 يوليو 2024", edition: "الدورة السادسة · سابقة",
     category: "egypt", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/38726978/pexels-photo-38726978.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "يخوت فاخرة راسية في خليج محمي على مياه زرقاء صافية تحت سماء مفتوحة",
     notes: "The first waterfront edition, held at Marassi Marina on Egypt's North Coast.",
     notesAr: "أول دورة تُقام على الواجهة البحرية، في مارينا مراسي بالساحل الشمالي."
   },
@@ -70,7 +73,8 @@ const EXHIBITIONS = [
     venue: "الساحل الشمالي",
     dates: "المواعيد قيد التأكيد", edition: "",
     category: "egypt", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/39076874/pexels-photo-39076874.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "يخت فاخر راسٍ في ميناء متوسطي تغمره الشمس",
     notes: "Egypt's North Coast marine exhibition. Current edition dates to be confirmed with the organiser.",
     notesAr: "المعرض البحري بالساحل الشمالي المصري. تُؤكَّد مواعيد الدورة الحالية من الجهة المنظمة."
   },
@@ -94,7 +98,8 @@ const EXHIBITIONS = [
     venue: "ميناء دبي (Dubai Harbour)",
     dates: "سنويًا", edition: "",
     category: "middle-east", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/31714607/pexels-photo-31714607.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "منظر جوي ليخت أبيض بمحرك يشق مياه المحيط الفيروزية",
     notes: "", notesAr: ""
   },
   {
@@ -104,7 +109,8 @@ const EXHIBITIONS = [
     venue: "مارينا خور دبي، بارك حياة",
     dates: "31 أكتوبر – 2 نوفمبر", edition: "الدورة الحادية عشرة",
     category: "middle-east", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/5996373/pexels-photo-5996373.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "منظر جوي ليخوت بمحرك ومركبة شراعية في عرض البحر",
     notes: "", notesAr: ""
   },
   {
@@ -114,7 +120,8 @@ const EXHIBITIONS = [
     venue: "ميناء الدوحة القديم",
     dates: "4–7 نوفمبر 2026", edition: "الدورة الثالثة",
     category: "middle-east", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/8356437/pexels-photo-8356437.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "منظر أمامي من مقدمة يخت فاخر على مياه هادئة",
     notes: "The second edition drew over 27,000 visitors across four days, with 505 brands and 65 vessels from 105 countries.",
     notesAr: "استقطبت الدورة الثانية أكثر من 27,000 زائر على مدى أربعة أيام، بمشاركة 505 علامة تجارية و65 مركبة من 105 دول."
   },
@@ -125,7 +132,8 @@ const EXHIBITIONS = [
     venue: "مارينا الخيران",
     dates: "28–31 يناير 2026", edition: "",
     category: "middle-east", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/8299833/pexels-photo-8299833.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "منظر جوي ليخت فاخر راسٍ قرب ساحل صخري",
     notes: "Kuwait's first boat show in seven years.",
     notesAr: "أول معرض قوارب في الكويت منذ سبع سنوات."
   },
@@ -161,7 +169,8 @@ const EXHIBITIONS = [
     venue: "مركز RAI للمعارض والمؤتمرات",
     dates: "17–19 نوفمبر 2026", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/36803733/pexels-photo-36803733.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "يخوت ومركبات كبيرة على مياه مفتوحة تحيط بها الجبال",
     notes: "The world's largest marine equipment trade exhibition — suppliers and technology rather than finished vessels.",
     notesAr: "أكبر معرض تجاري عالمي لمعدات الصناعة البحرية — موجّه للمورّدين والتقنيات لا للمركبات المكتملة."
   },
@@ -183,7 +192,8 @@ const EXHIBITIONS = [
     venue: "مركز معارض دوسلدورف",
     dates: "23–31 يناير 2027", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/37385664/pexels-photo-37385664.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "يخوت فاخرة راسية على امتداد ميناء أوروبي، بالأبيض والأسود",
     notes: "One of the largest indoor water sports and boating exhibitions in the world.",
     notesAr: "من أكبر معارض الرياضات المائية والقوارب المغلقة في العالم."
   },
@@ -194,7 +204,8 @@ const EXHIBITIONS = [
     venue: "الميناء القديم وميناء كانتو",
     dates: "سنويًا، سبتمبر", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/31758539/pexels-photo-31758539.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "يخت فاخر راسٍ أمام عمارة الواجهة البحرية على الريفييرا",
     notes: "", notesAr: ""
   },
   {
@@ -204,7 +215,8 @@ const EXHIBITIONS = [
     venue: "واجهة ليفانتي البحرية",
     dates: "سنويًا، سبتمبر", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/13348226/pexels-photo-13348226.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "يخت داكن الهيكل يبحر في مياه ساحلية إيطالية",
     notes: "", notesAr: ""
   },
   {
@@ -214,7 +226,8 @@ const EXHIBITIONS = [
     venue: "",
     dates: "سنويًا، مارس", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/31383441/pexels-photo-31383441.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "يخوت أنيقة بمحرك راسية معًا في ميناء محمي",
     notes: "", notesAr: ""
   },
   {
@@ -224,7 +237,8 @@ const EXHIBITIONS = [
     venue: "مركز معارض فريدريشسهافن",
     dates: "سنويًا، سبتمبر", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/18649940/pexels-photo-18649940.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "يخت بمحرك عند رصيف إرساء، بالأبيض والأسود",
     notes: "", notesAr: ""
   },
   {
@@ -234,7 +248,8 @@ const EXHIBITIONS = [
     venue: "كينتكس (KINTEX)",
     dates: "6–8 مارس 2026", edition: "",
     category: "international", attended: false,
-    image: "", alt: "",
+    image: "https://images.pexels.com/photos/38695253/pexels-photo-38695253.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    alt: "يخوت فاخرة تصطف على رصيف ميناء، بالأبيض والأسود",
     notes: "", notesAr: ""
   }
 ];
