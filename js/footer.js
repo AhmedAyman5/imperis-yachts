@@ -13,7 +13,7 @@ const MAPS_HQ =
 const MAPS_SHIPYARD =
   "https://www.google.com/maps/search/?api=1&query=Third+Free+Zone%2C+Ataka+District%2C+Suez+Governorate%2C+Egypt+43713";
 
-/* Brand logo — /images/YA5T1-04.png, the same file the navbar uses. Drawn as a
+/* Brand logo — /images/newlogo.png, the same file the navbar uses. Drawn as a
    CSS mask (see .footer-logo-mark in style.css) filled white, which sits on the
    midnight-blue footer. The PNG already contains the "IMPERIS YACHTS" wordmark,
    so no text sits beside it. */

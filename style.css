@@ -385,10 +385,16 @@ html[lang="ar"] .hero .eyebrow {
   border-bottom: 1px solid rgba(36, 58, 94, 0.08);
 }
 
+/* Unlike .container (1200px) the navbar spans the FULL viewport width on
+   purpose. The wide horizontal logo plus 7 menu groups, the language switcher
+   and the Contact CTA do not fit inside a centred 1280px box — capping it here
+   wasted ~120px of dead space on each side and pushed the CTA off the bar.
+   Full width + a 2rem gutter puts the logo near the left edge and gives the
+   row ~225px more room. Do not re-add a max-width without shrinking the menu. */
 .site-nav .nav-inner {
-  max-width: 1280px;
+  max-width: none;
   margin-inline: auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   height: var(--navbar-height);
   display: flex;
   align-items: center;
@@ -414,41 +420,51 @@ html[lang="ar"] .hero .eyebrow {
 }
 
 /* Brand logo mark (navbar + footer).
-   /images/YA5T1-04.png is white artwork on transparent, so it is used as a MASK
+   /images/newlogo.png is white artwork on transparent, so it is used as a MASK
    rather than an <img>: the element's background-color becomes the logo colour,
    which lets the one file render navy on the white navbar and white on the navy
    footer.
 
    Both the navbar and the footer show the FULL lockup (bow mark + IMPERIS +
-   YACHTS). The source file is a square canvas with a wide transparent margin;
-   measured from its alpha channel the artwork sits at 12%-88% horizontally and
-   15%-78% vertically, i.e. 76% x 63% of the canvas (aspect 1.206). Scaling the
-   mask to 131.6% of the box width and offsetting it 50% / 40.5% trims that
-   margin exactly, so the box is all artwork and no padding.
+   YACHTS). This logo is a WIDE HORIZONTAL lockup — the bow mark sits to the
+   LEFT of the wordmark, not above it. The source file is a 4167x4168 canvas
+   with a large transparent margin; measured from its alpha channel the artwork
+   sits at x 202-3964 and y 1609-2530, i.e. 3763 x 922 px (aspect 4.081) and
+   exactly centred horizontally. Scaling the mask to 110.74% of the box width
+   and offsetting it 50% / 49.57% trims that margin exactly, so the box is all
+   artwork and no padding.
    Re-measure these three values if the artwork file is ever re-exported. */
 :root {
-  --logo-mask: url("/images/YA5T1-04.png");
-  --logo-size: 131.6% auto;
-  --logo-pos: 50% 40.5%;
-  --logo-aspect: 1.206;
+  --logo-mask: url("/images/newlogo.png");
+  --logo-size: 110.74% auto;
+  --logo-pos: 50% 49.57%;
+  --logo-aspect: 4.081;
 
   /* Rendered widths — the only two numbers to touch when resizing. Height is
      derived from --logo-aspect so the artwork never stretches.
 
-     IMPORTANT: this logo is a near-square VERTICAL lockup (bow mark stacked
-     over the wordmark), aspect 1.206, so its height grows with its width:
-         logo height  = logo width / 1.206
-         bar height   = logo height + ~16px breathing room
-     That ties the two together — pick a nav width and set --navbar-height to
-     match, or the logo will crowd or overflow the bar:
-         --logo-nav-width   nav logo height   --navbar-height
-              104px              86px              102px
-              125px             104px              120px   <- current
-              150px             124px              140px
-              200px             166px              182px
-     The footer has no such constraint, so it carries the logo at full size. */
-  --logo-nav-width: 125px;
-  --logo-footer-width: 200px;
+     Because the lockup is wide and short (aspect 4.081), width is now the
+     scarce resource, not height:
+         logo height = logo width / 4.081
+     The desktop navbar (>=1024px) packs 7 menu groups + the language switcher
+     + the Contact CTA beside the logo. Measured at the 1280px .nav-inner:
+     menu 886px + actions 212px + 48px gaps + 48px padding = 1194px, leaving
+     only ~86px for the logo. The bar therefore ALREADY overflowed its
+     container with the old 125px logo (~39px over) — this is a pre-existing
+     navbar issue, not something the logo swap introduced, but a wider logo
+     makes it worse, so keep --logo-nav-width modest until the nav itself is
+     given more room (tighter .nav-link padding, or moving the hamburger
+     breakpoint up from 1024px to ~1200px).
+         --logo-nav-width   nav logo height
+              150px               37px   (mobile)
+              170px               42px   <- current (desktop)
+              188px               46px   (reads better, but widens the
+                                       overflow described above)
+     Height no longer drives --navbar-height the way the old vertical logo did,
+     so the two are independent now. The footer has room to spare and carries
+     the logo larger. */
+  --logo-nav-width: 300px;
+  --logo-footer-width: 100px;
 }
 
 .nav-logo-mark,
@@ -481,15 +497,15 @@ html[lang="ar"] .hero .eyebrow {
   background-color: #fff;
 }
 
-/* Phones get a shorter bar and a smaller logo, keeping the same
-   height = width / 1.206 + breathing room relationship as above. Every sticky
-   offset and scroll-margin on the site is calc()'d from --navbar-height, so
-   they all follow automatically. */
+/* Phones get a shorter bar and a smaller logo. Below 768px the bar holds only
+   the logo and the hamburger, so the logo is sized to sit comfortably rather
+   than to clear the menu. Every sticky offset and scroll-margin on the site is
+   calc()'d from --navbar-height, so they all follow automatically. */
 @media (max-width: 767px) {
   :root {
     --navbar-height: 100px;
-    --logo-nav-width: 102px;
-    --logo-footer-width: 150px;
+    --logo-nav-width: 150px;
+    --logo-footer-width: 100px;
   }
 }
 

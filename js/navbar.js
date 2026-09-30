@@ -5,7 +5,7 @@
    Two full template strings (EN + AR) are chosen by <html lang>.  (§10)
    ========================================================================= */
 
-/* Brand logo — /images/YA5T1-04.png. The artwork is WHITE on transparent, so on
+/* Brand logo — /images/newlogo.png. The artwork is WHITE on transparent, so on
    the white navbar it is drawn as a CSS mask filled with --color-primary (see
    .nav-logo-mark in style.css); the footer uses the same file filled white.
    The PNG already contains the "IMPERIS YACHTS" wordmark, so no text sits
