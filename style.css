@@ -464,7 +464,7 @@ html[lang="ar"] .hero .eyebrow {
      so the two are independent now. The footer has room to spare and carries
      the logo larger. */
   --logo-nav-width: 300px;
-  --logo-footer-width: 100px;
+  --logo-footer-width: 400px;
 }
 
 .nav-logo-mark,
